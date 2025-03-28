@@ -1,0 +1,62 @@
+/*Using 'auto' to see if this works better. */
+/* Style for the main content area */
+#container {
+    width: 100%;
+    overflow: auto;
+}
+
+/* Centering the h1 title on the page */
+h1 {
+    text-align: center;
+}
+
+/* Side-by-side divs being set */
+.left-div, .right-div {
+    width: 45%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* Creating borders around the titles and lists */
+.left-div {
+    float: left;
+    border: 1px solid red;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.right-div {
+    float: right;
+    border: 1px dashed red;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+/* Styling for Lists */
+ol, ul {
+    font-weight: 300;
+    padding: 10px;
+    list-style-position: inside;
+    margin: 0; /* Removes extra margin */
+}
+
+/* Style for Unordered List */
+.right-div ul {
+    list-style-type: upper-roman;
+}
+
+/* Explicit style for Last div */
+.bottom-div {
+    width: 100%;
+    margin-top: 60%;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.bottom-div a {
+    float: right;
+}
+
+.bottom-div a:hover {
+    text-decoration: underline;
+}
