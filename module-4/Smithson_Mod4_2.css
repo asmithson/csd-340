@@ -1,0 +1,69 @@
+/* General Body Styling */
+body {
+    font-family: Arial, 'Times New Roman', sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Title Styling */
+h1 {
+    text-align: center;
+    color: rgba(179, 2, 2, 0.8);
+}
+
+/* Book Title Styling */
+h3 {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+/* Image Gallery Styling */
+#image-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 20px;
+    margin-top: 10%;
+    padding: 0 20px;
+}
+
+/* Image Styling- sizing down large images */
+#image-gallery img {
+    width: 100%; 
+    height: auto; /* Recommended by chatGPT for responsive design */
+    display: block;
+    margin: 0 auto;
+    max-width: 250px; 
+}
+
+/* Figure Styling */
+figure {
+    text-align: center;
+}
+
+/* Figcaption Styling */
+figcaption {
+    font-style: italic;
+    font-size: 0.75em;
+    color: rgba(128, 0, 0, 0.8);
+}
+
+/* Styling for the Landing Page Link */
+.bottom-div {
+    width: 100%;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.bottom-div a {
+    text-decoration: none;
+    color: blue;
+}
+
+.bottom-div a:hover {
+    text-decoration: underline;
+}
+
+/* References: 
+    Duckett, J. (2014). HTML and CSS: Design and Build Websites. Wiley.
+    OpenAI. (2025, April 4). ChatGPT (Version GPT-4) [Large language model]. OpenAI. https://chat.openai.com/ 
+         (used for CSS error suggestions)
+    W3Schools.com. (n.d.). https://www.w3schools.com/css/css_grid.asp */
