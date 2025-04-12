@@ -120,9 +120,10 @@
   
   .timeline-entry img,
   .hobby-entry img {
-    flex: 1 1 300px;
-    max-width: 400px;
+    width: 300px;
+    height: auto;
   }
+  
   
   .timeline-entry p,
   .hobby-entry p {
