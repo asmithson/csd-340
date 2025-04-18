@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, 'Open Sans', sans-serif;
+    position: relative;
+    margin: 0;
+    padding: 0 0.5%; /* Added to see the edges of bars */
+    background-color: white;
+    overflow: hidden;
+    min-height: 100vh; /* Ensures footer is at the bottom of the page (suggestion from chatGPT after issues) */
+}
+
+/* Bar settings to look like sample */
+.bar-content {
+    width: 90%;
+    margin: 0 auto;      
+}
+
+/*Header settings */
+header {
+    background-color: #444;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 10px; /* Space between header and navbar */
+}
+
+h1 {
+    font-weight: 400;
+}
+
+/* Navbar settings */
+#navbar {
+    overflow: hidden;
+    background-color: #333;
+    border-bottom: 15px solid #ff9900;
+    width: 100%;
+}
+
+/* Navbar links */
+#navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Navbar links on hover */
+#navbar a:hover {
+    background-color: #ff9900;
+    color: black;
+}
+
+/* Container settings */
+#container {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 10px;
+}
+
+/* Card settings */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 50%;
+    margin: 20px auto; /* Helps center card from navbar on page */
+}
+
+.card-title {
+    text-align: center;
+    font-size: 2em;
+    color: #ee6d10;
+    font-weight: 400;
+}
+
+.card-content {
+    padding: 2px 16px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Footer settings */
+footer {
+    background-color: #444;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    overflow: hidden;      
+}
+
+footer p {
+    color: white;
+    font-weight: 400;
+    float: right;
+    padding-right: 10px;
+    font-style: italic;
+    white-space: nowrap; 
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* References: Duckett, J. (2014). HTML and CSS: Design and Build Websites. Wiley.
+OpenAI. (2025, April 18). ChatGPT (Asher’s assistant) response on fixing HTML/CSS layout issues. ChatGPT. https://chat.openai.com/ */
