@@ -1,0 +1,194 @@
+/* Color Palette (Sweet Tart Inspired) */
+:root {
+    --pink: #ff77b4;
+    --teal: #40e0d0;
+    --orange: #ffa07a;
+    --green: #98fb98;
+    --white: #ffffff;
+    --yellow: #fff495;
+    --purple: #c58af9;
+    --frame: #fcc44a;
+  }
+  
+  /* Base Styles */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: var(--green);
+    color: var(--purple);
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    border: 4px solid var(--frame);
+  }
+  
+  .container {
+    background-color: var(--yellow);
+    border: 2px solid var(--purple);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  /* Header */
+  header {
+    background: linear-gradient(to right, var(--pink), var(--teal));
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  .site-title {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  .site-subtitle {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  /* Sections */
+  main section {
+    padding: 2rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  section h2 {
+    color: var(--pink);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  
+  section p {
+    margin-bottom: 1rem;
+  }
+  
+  /* Landing Section */
+  .landing {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .landing-image, .intro-text {
+    flex: 1 1 400px;
+}
+  
+  .intro-text, .portrait {
+    flex: 1 1 400px;
+  }
+  
+  /* Timeline & Hobbies Sections */
+  .timeline-entry,
+  .hobby-entry {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 2rem;
+  }
+  
+  .timeline-entry.left img,
+  .hobby-entry.left img {
+    order: 0;
+  }
+  
+  .timeline-entry.right img,
+  .hobby-entry.right img {
+    order: 1;
+  }
+  
+  .timeline-entry.left p,
+  .hobby-entry.left p {
+    order: 1;
+  }
+  
+  .timeline-entry.right p,
+  .hobby-entry.right p {
+    order: 0;
+  }
+  
+  .timeline-entry img,
+  .hobby-entry img {
+    width: 300px;
+    height: auto;
+  }
+  
+  
+  .timeline-entry p,
+  .hobby-entry p {
+    flex: 2 1 300px;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 4px solid var(--frame);
+    object-fit: cover;
+  }
+  
+  /* External Link Section */
+  .external-link a {
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .external-link a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--purple);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+
+  /* Buttons */
+.button {
+    background-color: var(--pink);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: var(--orange);
+  }
+  
+  @media (max-width: 768px) {
+    .landing,
+    .timeline-entry,
+    .hobby-entry {
+      flex-direction: column;
+    }
+  
+    .timeline-entry img,
+    .hobby-entry img,
+    .timeline-entry p,
+    .hobby-entry p {
+      order: 0 !important;
+    }
+  }
+  
