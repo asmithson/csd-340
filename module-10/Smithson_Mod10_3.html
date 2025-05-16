@@ -10,7 +10,7 @@
   <style>
     /* === Color palette (Calico Inspired from author's Cats) === */
     :root {
-      --cream: #fdf6f0;
+      --cream: #fffbf7;
       --orange: #d97b29;
       --charcoal: #444;
       --light-beige: #fffaf3;
@@ -33,7 +33,7 @@
       background-color: var(--orange);
       color: var(--accent-white);
       margin: 0;
-      font-weight: 700; /* Added bold */
+      font-weight: 700;
     }
 
     h2 {
@@ -68,7 +68,7 @@
     }
 
     /* === Static image styling (for intro section) === */
-    .main-static {
+    .main-display-static {
       width: 320px;
       height: 220px;
       object-fit: cover;
@@ -77,7 +77,7 @@
       margin-top: 1em;
     }
 
-    /* === Footer styling === */
+    /* === Footer section and link styling === */
     .bottom-div {
       margin: 2em 0;
     }
@@ -90,38 +90,54 @@
   </style>
 
   <script>
-    // === Arrays for cycling images ===
-    const takaImages = [
-      { src: "images/reallytaka.jpg", alt: "Taka hates her picture being taken" },
-      { src: "images/takaisout.jpg", alt: "Taka and her soft, little snores" },
-      { src: "images/sistouch.jpg", alt: "Tanjin accepting Taka's supportive presence" }
-    ];
+    /**
+     * === Image Sets for Each Cat ===
+     * Stores arrays of image objects with src and alt text.
+     */
+    const imageSets = {
+      taka: [
+        { src: "images/reallytaka.jpg", alt: "Taka hates her picture being taken" },
+        { src: "images/takaisout.jpg", alt: "Taka and her soft, little snores" },
+        { src: "images/sistouch.jpg", alt: "Tanjin accepting Taka's supportive presence" }
+      ],
+      tanjin: [
+        { src: "images/stolenshelf.jpg", alt: "Tanjin daring her sis to take the shelf back" },
+        { src: "images/tiredtanjin.jpg", alt: "Tanjin enjoying her conquest with a nap" },
+        { src: "images/naptime.jpg", alt: "Tanjin loves her big sis the most" }
+      ]
+    };
 
-    const tanjinImages = [
-      { src: "images/stolenshelf.jpg", alt: "Tanjin daring her sis to take the shelf back" },
-      { src: "images/tiredtanjin.jpg", alt: "Tanjin enjoying her conquest with a nap" },
-      { src: "images/naptime.jpg", alt: "Tanjin loves her big sis the most" }
-    ];
+    /**
+     * === Index Tracker for Current Image ===
+     */
+    const currentIndex = {
+      taka: 0,
+      tanjin: 0
+    };
 
-    let takaIndex = 0;
-    let tanjinIndex = 0;
-
-    // === Cycle image for Taka ===
-    function cycleTakaImage() {
-      takaIndex = (takaIndex + 1) % takaImages.length;
-      const img = document.getElementById("takaMain");
-      img.src = takaImages[takaIndex].src;
-      img.alt = takaImages[takaIndex].alt;
-      img.title = takaImages[takaIndex].alt;
-    }
-
-    // === Cycle image for Tanjin ===
-    function cycleTanjinImage() {
-      tanjinIndex = (tanjinIndex + 1) % tanjinImages.length;
-      const img = document.getElementById("tanjinMain");
-      img.src = tanjinImages[tanjinIndex].src;
-      img.alt = tanjinImages[tanjinIndex].alt;
-      img.title = tanjinImages[tanjinIndex].alt;
+    /**
+     * === cycleImage() ===
+     * Cycles to the next image for the given cat and updates the image element.
+     * @param {string} catKey - Either 'taka' or 'tanjin'
+     * @param {string} elementId - ID of the image element to update
+     */
+    function cycleImage(catKey, elementId) {
+      const images = imageSets[catKey];
+      if (!images || images.length === 0) {
+        console.warn(`No images found for cat "${catKey}".`);
+        return;
+      }
+      currentIndex[catKey] = (currentIndex[catKey] + 1) % images.length;
+      const current = images[currentIndex[catKey]];
+      const img = document.getElementById(elementId);
+      if (!img) {
+        console.error(`Element with ID "${elementId}" not found.`);
+        return;
+      }
+      img.src = current.src;
+      img.alt = current.alt;
+      img.title = current.alt;
+      img.setAttribute("aria-label", current.alt);
     }
   </script>
 </head>
@@ -132,24 +148,29 @@
 
   <!-- === Section: Static Intro with Both Cats === -->
   <section class="cat-section">
-    <img src="images/takatanjin.jpg" alt="The Girls" class="main-static">
+    <img src="images/takatanjin.jpg" alt="The Girls" class="main-display-static">
     <h2>Meet Taka and Tanjin</h2>
     <p class="description">
-      Taka and Tanjin are my two calico cats. Taka is the quiet huntress, while Tanjin could talk your ear off. This year they will celebrate their decade birthday, but they behave as if going on three. Beloved and cherished, they are a joy watching while playing or when asleep. Click on the thumbnails to see more pictures of them!
-    </p>
-    
+      Taka and Tanjin are my two calico cats. Taka is the quiet huntress, while Tanjin could talk your ear off. This year they will celebrate their decade birthday, but they behave as if going on three. Beloved and cherished, they are a joy watching while playing or when asleep. Click on the images to cycle through their moods.
+    </p>    
   </section>
 
   <!-- === Section: Taka's Interactive Section === -->
   <section class="cat-section">
-    <h2> Taka - The Big Sister</h2>
+    <h2>Taka - The Big Sister</h2>
     <p class="description">
       Taka is full of curiosity and opinion. From stealing shelves to silently judging with side-eye, she’s a force of quiet chaos. Taking on the role of big sister, Taka is a silent, sweet guardian. Click the image to cycle through her moods.
     </p>
-
-    <!-- === Taka Main Image Display === -->
     <div class="main-display">
-      <img id="takaMain" src="images/reallytaka.jpg" alt="Taka hates her picture being taken" title="Taka hates her picture being taken" onclick="cycleTakaImage()">
+      <img
+        id="takaMain"
+        src="images/reallytaka.jpg"
+        alt="Taka hates her picture being taken"
+        title="Taka hates her picture being taken"
+        role="img"
+        aria-label="Taka hates her picture being taken"
+        onclick="cycleImage('taka', 'takaMain')"
+      >
     </div>
   </section>
 
@@ -159,14 +180,20 @@
     <p class="description">
       Tanjin is the little sister, and she’s a talker. She loves to play, and she loves to eat. She’s a little diva who loves to be the center of attention. Click the image to cycle through her moods.
     </p>
-
-    <!-- === Tanjin Main Image Display === -->
     <div class="main-display">
-      <img id="tanjinMain" src="images/stolenshelf.jpg" alt="Tanjin daring her sis to take the shelf back" title="Tanjin daring her sis to take the shelf back" onclick="cycleTanjinImage()">
+      <img
+        id="tanjinMain"
+        src="images/stolenshelf.jpg"
+        alt="Tanjin daring her sis to take the shelf back"
+        title="Tanjin daring her sis to take the shelf back"
+        role="img"
+        aria-label="Tanjin daring her sis to take the shelf back"
+        onclick="cycleImage('tanjin', 'tanjinMain')"
+      >
     </div>
   </section>
 
-  <!-- === Footer Section === -->
+  <!-- === Footer section and link styling === -->
   <div class="bottom-div">
     <a href="../index.html">Back to Landing Page</a>
   </div>
