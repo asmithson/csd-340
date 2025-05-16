@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">    
+  <title>CSD 340 Web Development with HTML and CSS</title>
+
+  <!-- Google Import for Fonts: Comfortaa + Nunito Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
+
+  <style>
+    /* === Color palette (Calico Inspired from author's Cats) === */
+    :root {
+      --cream: #fdf6f0;
+      --orange: #d97b29;
+      --charcoal: #444;
+      --light-beige: #fffaf3;
+      --accent-white: #f8f8f8;
+    }
+
+    /* === Base styling for Body and Text === */
+    body {
+      background-color: var(--cream);
+      font-family: Comfortaa, 'Nunito sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--charcoal);
+      text-align: center;        
+    }
+
+    /* === Page header styling === */
+    h1 {
+      padding: 1em;
+      background-color: var(--orange);
+      color: var(--accent-white);
+      margin: 0;
+      font-weight: 700; /* Added bold */
+    }
+
+    h2 {
+      color: var(--orange);
+      margin-top: 1.5em;
+    }
+
+    /* === Paragraph styling (for descriptions) === */
+    p.description {
+      max-width: 700px;
+      margin: 0 auto 1.5em auto;
+      font-size: 1rem;
+      color: var(--charcoal);
+      text-align: left;
+    }
+
+    /* === Section container styling === */
+    .cat-section {
+      padding: 2em;
+    }
+
+    /* === Main styling for images === */
+    .main-display img {
+      width: 450px;
+      height: auto;
+      max-width: 90%;
+      object-fit: cover;
+      border: 6px solid var(--charcoal);
+      border-radius: 12px;
+      margin-top: 1em;
+      cursor: pointer;
+    }
+
+    /* === Static image styling (for intro section) === */
+    .main-static {
+      width: 320px;
+      height: 220px;
+      object-fit: cover;
+      border: 6px solid var(--charcoal);
+      border-radius: 12px;
+      margin-top: 1em;
+    }
+
+    /* === Footer styling === */
+    .bottom-div {
+      margin: 2em 0;
+    }
+
+    .bottom-div a {
+      text-decoration: none;
+      color: var(--orange);
+      font-weight: bold;
+    }
+  </style>
+
+  <script>
+    // === Arrays for cycling images ===
+    const takaImages = [
+      { src: "images/reallytaka.jpg", alt: "Taka hates her picture being taken" },
+      { src: "images/takaisout.jpg", alt: "Taka and her soft, little snores" },
+      { src: "images/sistouch.jpg", alt: "Tanjin accepting Taka's supportive presence" }
+    ];
+
+    const tanjinImages = [
+      { src: "images/stolenshelf.jpg", alt: "Tanjin daring her sis to take the shelf back" },
+      { src: "images/tiredtanjin.jpg", alt: "Tanjin enjoying her conquest with a nap" },
+      { src: "images/naptime.jpg", alt: "Tanjin loves her big sis the most" }
+    ];
+
+    let takaIndex = 0;
+    let tanjinIndex = 0;
+
+    // === Cycle image for Taka ===
+    function cycleTakaImage() {
+      takaIndex = (takaIndex + 1) % takaImages.length;
+      const img = document.getElementById("takaMain");
+      img.src = takaImages[takaIndex].src;
+      img.alt = takaImages[takaIndex].alt;
+      img.title = takaImages[takaIndex].alt;
+    }
+
+    // === Cycle image for Tanjin ===
+    function cycleTanjinImage() {
+      tanjinIndex = (tanjinIndex + 1) % tanjinImages.length;
+      const img = document.getElementById("tanjinMain");
+      img.src = tanjinImages[tanjinIndex].src;
+      img.alt = tanjinImages[tanjinIndex].alt;
+      img.title = tanjinImages[tanjinIndex].alt;
+    }
+  </script>
+</head>
+<body>
+
+  <!-- === Main Title === -->
+  <h1>Assignment 10.3: JavaScript - Part 2</h1>
+
+  <!-- === Section: Static Intro with Both Cats === -->
+  <section class="cat-section">
+    <h2>Meet Taka and Tanjin</h2>
+    <p class="description">
+      Taka and Tanjin are my two calico cats. Taka is the quiet huntress, while Tanjin could talk your ear off. This year they will celebrate their decade birthday, but they behave as if going on three. Beloved and cherished, they are a joy watching while playing or when asleep. Click on the thumbnails to see more pictures of them!
+    </p>
+    <img src="images/takatanjin.jpg" alt="The Girls" class="main-static">
+  </section>
+
+  <!-- === Section: Taka's Interactive Section === -->
+  <section class="cat-section">
+    <h2> Taka - The Big Sister</h2>
+    <p class="description">
+      Taka is full of curiosity and opinion. From stealing shelves to silently judging with side-eye, she’s a force of quiet chaos. Taking on the role of big sister, Taka is a silent, sweet guardian. Click the image to cycle through her moods.
+    </p>
+
+    <!-- === Taka Main Image Display === -->
+    <div class="main-display">
+      <img id="takaMain" src="images/reallytaka.jpg" alt="Taka hates her picture being taken" title="Taka hates her picture being taken" onclick="cycleTakaImage()">
+    </div>
+  </section>
+
+  <!-- === Section: Tanjin's Interactive Section === -->
+  <section class="cat-section">
+    <h2>Tanjin - The Little Sister</h2>
+    <p class="description">
+      Tanjin is the little sister, and she’s a talker. She loves to play, and she loves to eat. She’s a little diva who loves to be the center of attention. Click the image to cycle through her moods.
+    </p>
+
+    <!-- === Tanjin Main Image Display === -->
+    <div class="main-display">
+      <img id="tanjinMain" src="images/stolenshelf.jpg" alt="Tanjin daring her sis to take the shelf back" title="Tanjin daring her sis to take the shelf back" onclick="cycleTanjinImage()">
+    </div>
+  </section>
+
+  <!-- === Footer Section === -->
+  <div class="bottom-div">
+    <a href="../index.html">Back to Landing Page</a>
+  </div>
+
+</body>
+</html>
