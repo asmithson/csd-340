@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>CSD 340 Web Development with HTML and CSS</title>
+        <style>
+            body {
+                font-family: Lora, Arial, sans-serif;
+                background-color: #f5f5f5;
+                color: #5e336e;
+                padding: 20px;
+            }
+
+            h1 {
+                color: #5e336e;
+            }
+
+            p {
+                background-color: #d8f3dc;
+                border-left: 5px solid #81b29a;
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+
+            input {
+                padding: 8px;
+                width: 250px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                background-color: #ffffff;
+                color: #5e336e;
+            }
+
+            button {
+                padding: 8px 12px;
+                background-color: #81b29a;
+                color: #5e336e;
+                font-weight: bold;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.1s ease-in-out;
+            }
+
+            button:hover {
+                background-color: #6da78c;
+            }
+
+            #output {
+                margin-top: 20px;
+                background-color: #f0f0f0;
+                border: 1px solid #ccc;
+                padding: 15px;
+                border-radius: 4px;
+                color: #5e336e;
+            }
+
+            #output li {
+                padding: 4px 0;
+                border-bottom: 1px dotted #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Assignment 11.2: JavaScript - Part 3</h1>
+        <!-- Introduction/Information -->
+        <p>Welcome to your To-Do List!<br><br> 
+            Type in the item you need to do, then click <strong>Add</strong>. Use <strong>Display</strong> to see your current To-Do List.<br><br>
+            Click <strong>Delete Last Entry</strong> to remove the most recent item or <strong>Delete Selected Item</strong> and type in the number on the list of the item you want to delete.</p>
+        
+        <!-- Input and Buttons -->
+        <input type="text" id="itemInput" placeholder="Enter a to-do item" />
+        <button onclick="addItem()">Add</button>
+        <button onclick="deleteLastItem()">Delete Last Entry</button>
+        <button onclick="displayItems()">Display</button>
+        <br><br>
+        <input type="number" id="deleteItem" placeholder="Enter item number to delete" min="1" />
+        <button onclick="deleteItem()">Delete Selected Item</button>
+
+        <!-- Display Area -->
+        <div id="output"></div>
+
+        <!-- JavaScript -->
+        <script>
+            var items = [];
+
+            function addItem() {
+                var input = document.getElementById("itemInput").value.trim();
+                if (input !== "") {
+                    items.push(input);
+                    alert("Item: " + input + " Added as Item " + items.length);
+                    document.getElementById("itemInput").value = ""; // Clear input field
+                }
+            }
+
+            function deleteLastItem() {
+                if (items.length > 0) {
+                    var removedItem = items.pop();
+                    alert("Item: " + removedItem + " Removed");
+                } else {
+                    alert("No items to remove.");
+                }
+            }
+
+            function deleteItem() {
+                var index = parseInt(document.getElementById("deleteItem").value) -1;
+                if (index >= 0 && index < items.length) {
+                    var removedItem = items.splice(index, 1);
+                    alert("Item: " + removedItem + " Removed");
+                    document.getElementById("deleteItem").value = ""; // Clear input field
+                } else {
+                    alert("Invalid item number.");
+                }
+            }
+
+            function displayItems() {
+                var output = "<ul>";
+                for (var i = 0; i < items.length; i++) {
+                    output += "<li>Item" + (i + 1) + " = " + items[i] + "</li>";
+                }
+                output += "</ul>";
+                document.getElementById("output").innerHTML = output;
+            }
+        </script>
+        <div class="bottom-div">
+            <a href="../index.html">Back to Landing Page</a>
+        </div>
+    
+    </body>    
+</html>
