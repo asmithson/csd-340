@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSD 340 Web Development with HTML and CSS</title>
+    <link rel="stylesheet" href="Smithson_Mod12.2.css">
+    <!-- Author: Asher Smithson | Date: 05-28-2025 -->
+</head>
+<body>
+    <div id="container">
+        <h1>Assignment 12.2: JavaScript - Part 4</h1>
+
+        <div id="book-list-display" class="left-div">
+            <h3>Top 10 Favorite Books</h3>
+
+            <div class="button-container">
+                <button onclick="sortTopToBottom()">Top to Bottom</button>
+                <button onclick="sortBottomToTop()">Bottom to Top</button>
+            </div>
+
+            <ol id="bookList"></ul>
+        </div>
+
+        <div class="right-div">
+            <h3>5 Things I've Learned Since the Course Started</h3>
+            <ul>
+                <li>How to Build Multi-Page Layouts with Reusable CSS</li>
+                <li>How to Dynamically Control Content with JavaScript</li>
+                <li>The Impact of Box Model, Flaots, and Flexbox on Layouts</li>
+                <li>How to Debug Styling and Linking Issues Effectively/li>
+                <li>Why Clean, Organized Code (DRY) Structure and Comments Matter</li>
+            </ul>
+        </div>
+        
+        <div class="bottom-div">
+            <a href="../index.html">Back to Landing Page</a>
+        </div>
+    </div>
+    <!-- JavaScript Section -->
+    <script>
+        /*
+            Author: Asher Smithson
+            Date: 05-28-2025
+            Purpose: Sort and display book titles in ascending or descending order
+        */
+        const books = [
+            "The Lies of Locke Lamora",
+            "Prince of Thorns",
+            "The Blade Itself",
+            "The City & The City",
+            "The Night Angel Trilogy",
+            "The Poppy War Trilogy",
+            "The Black Company",
+            "The Gormenghast Novels",
+            "The Traitor Baru Cormorant",
+            "Little, Big"
+        ];
+
+        const bookList = document.getElementById("bookList");
+
+        function displayBooks(sortedBooks) {
+            bookList.innerHTML = '';
+            sortedBooks.forEach(book => {
+                const li = document.createElement('li');
+                li.textContent = book;
+                bookList.appendChild(li);
+            });            
+        }
+
+        function sortTopToBottom() {
+            const sorted = [...books].sort();
+            displayBooks(sorted);
+        }
+
+        function sortBottomToTop() {
+            const sorted = [...books].sort().reverse();
+            displayBooks(sorted);
+        }
+
+        // Display the original list on page load
+        displayBooks(books);
+    </script>        
+</body>
+</html>

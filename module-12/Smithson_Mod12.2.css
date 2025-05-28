@@ -1,0 +1,132 @@
+/* Author: Asher Smithson | Last Updated: 05-28-2025 */
+
+/* Base page styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e;
+    color: #f2f2f2;
+    font-family:Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+/* Style for the main content area */
+#container {
+    max-wideth: 100px;
+    width: 100%;
+    overflow: auto;
+}
+
+/* Centering the h1 title on the page */
+h1 {
+    text-align: center;
+    color: #e84343;
+    margin-bottom: 60px;
+}
+
+/* Centering the h3 titles on the page */
+h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #f0b90b;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Side-by-side divs being set */
+.left-div, .right-div {
+    width: 44%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #2e2e2e;
+    border-radius: 15px;
+}
+
+/* Creating borders around the titles and lists */
+.left-div {
+    float: left;
+    border: 1px solid #d22121;    
+}
+
+.right-div {
+    float: right;
+    border: 1px dashed #d22121;    
+}
+
+/* Styling for Lists */
+ol, ul {
+    font-weight: 300;
+    padding: 10px;
+    list-style-position: inside;
+    margin: 0; 
+    color: #ffffff;
+}
+
+/* Style for Unordered List in right-div */
+.right-div ul {
+    list-style-type: upper-roman;
+}
+
+/* Styling for Button Section */
+.button-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.button-container button {
+    background-color: #f64949;
+    color: #1e1e1e;
+    border: none;
+    padding: 6px 14px;
+    margin: 0 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.button-container button:hover {
+    background-color: #ff7f7f;
+    transform: scale(1.05);
+}
+
+/* Bottom link section */
+.bottom-div {
+    width: 100%;
+    float: right;
+    margin-top: 30px;
+    text-align: right;
+}
+
+.bottom-div a {
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bottom-div a:hover {
+    text-decoration: underline;
+}
+
+/* Creating responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .left-div, .right-div {
+        float: none;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .button-container {
+        display: block;
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .bottom-div {
+        text-align: center;
+        margin-top: 30px;
+    }
+}
